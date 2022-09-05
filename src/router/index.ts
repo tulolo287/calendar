@@ -3,7 +3,7 @@ import { Login } from "../components/Login";
 
 export interface IRoute {
   path: string;
-  components: React.ComponentType;
+  component: React.ComponentType;
   exact?: boolean;
 }
 export enum RouteNames {
