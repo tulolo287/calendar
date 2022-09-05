@@ -6,7 +6,7 @@ const auth = false;
   return (
     auth ?
 
-<Switch>
+<Switch>hjhgjh
 {privateRoutes.map(route => <Route path={route.path}exact={route.exact}component={route.components}/>route => <Route path={route.path}exact={route.exact}component={route.components}/>)}
 
     </Switch>
