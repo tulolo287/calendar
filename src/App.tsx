@@ -1,8 +1,9 @@
-import React, { FC } from "react";
+import React from "react";
 import "./App.css";
+import AppRouter from "./components/AppRouter";
 
 function App() {
-  return <div>Hello</div>;
+  return <AppRouter />;
 }
 
 export default App;

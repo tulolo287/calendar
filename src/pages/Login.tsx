@@ -1,7 +1,7 @@
 import React from "react";
 
-function App() {
-  return <div>Hello</div>;
+function Login() {
+  return <div>Login</div>;
 }
 
-export default App;
+export default Login;

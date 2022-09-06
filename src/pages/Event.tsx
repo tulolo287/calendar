@@ -1,7 +1,7 @@
 import React from "react";
 
-function App() {
+function Event() {
   return <div>Event</div>;
 }
 
-export default App;
+export default Event;
