@@ -1,9 +1,17 @@
-const initialState = {
-  auth: false
+import { AuthState, AuthAction, AuthActionEnum } from "./types";
+
+const initialState: AuthState = {
+  isAuth: true
 };
 
-export default function authReducer(state, action) {
+export default function authReducer(
+  state = initialState,
+  action: AuthAction
+): AuthState {
   switch (action.type) {
+    case AuthActionEnum.SET_AUTH:
+      return { ...state, isAuth: action.payload };
+
     default:
       return state;
   }
