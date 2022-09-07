@@ -1,7 +1,7 @@
 import { AuthState, AuthAction, AuthActionEnum } from "./types";
 
 const initialState: AuthState = {
-  isAuth: true
+  isAuth: false
 };
 
 export default function authReducer(
