@@ -1,4 +1,3 @@
-import axios from "axios";
 import { IUser } from "../../../models/IUser";
 import {
   AuthActionEnum,
@@ -7,34 +6,35 @@ import {
   SetLoadingAction,
   SetUserAction
 } from "./types";
+import {AppDispatch} from "../../index";
+import axios from "axios";
+import { type } from "@testing-library/user-event/dist/type";
 
-export const AuthActionCreators = () => {
+
+export const AuthActionCreators = {
   setUser: (user: IUser): SetUserAction => ({
     type: AuthActionEnum.SET_USER,
     payload: user
-  });
+  }),
   setIsAuth: (auth: boolean): SetAuthAction => ({
     type: AuthActionEnum.SET_AUTH,
-    payload
-  });
+    payload: auth
+  }),
   setIsLoading: (payload: boolean): SetLoadingAction => ({
     type: AuthActionEnum.SET_LOADING,
     payload
-  });
-  setEror: (payload: string): SetErrorAction => ({
+  }),
+  setError: (payload: string): SetErrorAction => ({
     type: AuthActionEnum.SET_ERROR,
     payload
-  });
-  login: (username: string, password: string) => async (
-    dispatch: AppDispatch
-  ) => {
-    try {
-      dispatch(AuthActionCreators.setIsLoading(true));
-      const users = await axios.get("./users.json");
-      console.log(users);
-    } catch (e) {
-      dispatch(AuthActionCreators.setEror("Error bla bla"));
-    }
-  };
-  logout: () => async (dispatch: AppDispatch) => {};
-};
+  }),
+  setLogin: (username: string, password: string) => ({
+    type: AuthActionEnum.SET_LOGIN,
+    payload: async function() {
+      const users = await axios.get("./users.json")
+      console.log(users.data)
+    }()
+      
+    
+  })
+}

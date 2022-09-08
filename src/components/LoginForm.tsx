@@ -1,14 +1,21 @@
-import { Button, Form, Input } from "antd";
+import React from "react";
+import { Button, Card, Form, Input } from "antd";
 import { rules } from "../utils/rules";
 import { useDispatch } from "react-redux";
-import { AuthActionCreators } from "../store/reducers/auth/action-creators";
+import {AuthActionCreators} from "../store/reducers/auth/action-creators"
+
 
 const LoginForm = () => {
+
+  const dispatch = useDispatch()
+
   const submit = () => {
-    dispatch(AuthActionCreators.login("", ""));
-  };
+    dispatch(AuthActionCreators.setLogin("k", "f"))
+  }
+  
   return (
     <>
+    <Card>
       <Form name="basic" onFinish={submit}>
         <Form.Item
           label="Username"
@@ -30,14 +37,9 @@ const LoginForm = () => {
           </Button>
         </Form.Item>
       </Form>
+      </Card>
     </>
-  );
-};
-export default LoginForm;
-function dispatch(AuthActionCreators: any) {
-  throw new Error("Function not implemented.");
+  )
 }
 
-function AuthActionCreators(AuthActionCreators: any) {
-  throw new Error("Function not implemented.");
-}
+export default LoginForm;
